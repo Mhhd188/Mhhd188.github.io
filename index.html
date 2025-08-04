@@ -39,19 +39,19 @@
 </head>
 <body>
 
-<h2>Enter PIN to access secret</h2>
-<input type="password" id="pinInput" placeholder="Enter PIN" autofocus />
+<h2>Enter the secret code</h2>
+<input type="password" id="pinInput" placeholder="Enter code" autofocus />
 <button id="submitBtn">Enter</button>
 
 <div id="secret">
-oh hello you actually did this well basically I tried typing that language in here but it crashed the code editor so... just DM me a screenshot of this
+hello well you solved this congrats just DM me and ill give you the language i couldnt here because the code editor freezes 
 </div>
 
 <script>
   const pinInput = document.getElementById('pinInput');
   const submitBtn = document.getElementById('submitBtn');
   const secret = document.getElementById('secret');
-  const correctPin = 'xfccuo';
+  const correctPin = 'xfccuo'; // Updated here
 
   function checkPin() {
     if (pinInput.value === correctPin) {
@@ -60,7 +60,7 @@ oh hello you actually did this well basically I tried typing that language in he
       document.querySelector('h2').style.display = 'none';
       secret.style.display = 'block';
     } else {
-      alert('Wrong PIN! Try again.');
+      alert('Wrong code! Try again.');
       pinInput.value = '';
       pinInput.focus();
     }

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PIN Protected Site</title>
+  <style>
+    body {
+      background: #111;
+      color: #0f0;
+      font-family: monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    #secret {
+      display: none;
+      white-space: pre-wrap;
+      max-width: 90vw;
+    }
+    input, button {
+      font-size: 1.2rem;
+      padding: 0.5rem;
+      margin: 0.5rem;
+      border-radius: 4px;
+      border: none;
+      outline: none;
+    }
+    button {
+      cursor: pointer;
+      background: #0f0;
+      color: #111;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Enter PIN to access secret</h2>
+<input type="password" id="pinInput" placeholder="Enter PIN" autofocus />
+<button id="submitBtn">Enter</button>
+
+<div id="secret">
++ q × w ÷ e = r / t _ y < u > i [ o ] p ! a @ s # d $ f % g ^ h & j * k ( l ) z - x ' c " v : b ; n , m
+
+PIN Code System:  
+1 → p  
+2 → q  
+3 → v  
+4 → z  
+5 → l  
+6 → h  
+7 → b  
+8 → n  
+9 → s  
+0 → k  
+</div>
+
+<script>
+  const pinInput = document.getElementById('pinInput');
+  const submitBtn = document.getElementById('submitBtn');
+  const secret = document.getElementById('secret');
+  const correctPin = '109167';
+
+  function checkPin() {
+    if (pinInput.value === correctPin) {
+      pinInput.style.display = 'none';
+      submitBtn.style.display = 'none';
+      document.querySelector('h2').style.display = 'none';
+      secret.style.display = 'block';
+    } else {
+      alert('Wrong PIN! Try again.');
+      pinInput.value = '';
+      pinInput.focus();
+    }
+  }
+
+  submitBtn.addEventListener('click', checkPin);
+  pinInput.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') checkPin();
+  });
+</script>
+
+</body>
+</html>
